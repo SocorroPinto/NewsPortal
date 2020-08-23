@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 // import "./ParkDetail.css";
 import axios from "axios";
-let DomParser = require('dom-parser');
-let parser = new DomParser();
+// let DomParser = require('dom-parser');
+// let parser = new DomParser();
 
 
 class Noticia extends Component {
