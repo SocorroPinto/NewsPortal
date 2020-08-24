@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-// import logo from './logo.svg';
+import React, { Component } from "react";
+import "./SingleNew.css";
 import axios from "axios";
-import SectionMainNew from './SectionMainNew';
-import SectionRigthNew from './SectionRigthNew';
-import { Link } from "react-router-dom";
-import './SectionDet.css';
+//import FakePromo from "./FakePromo";
+// let DomParser = require('dom-parser');
+// let parser = new DomParser();
 let myMainUrl = `https://content.guardianapis.com/`;
+//https://blog.iese.edu/the-media-industry/files/2019/05/2016.jpg
 
 
-class SectionDet extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-            sectionName: null,
-            sectionContent: null
+class SingleNew extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            articleContent: {}
         };
     }
 
-    myNewFormat = (myNew, myClass, articleId) => {
+    formatSingleArt = (myNew, myClass) => {
         let myArrayImage = [];
         let myImageCre = {};
 
@@ -36,8 +36,9 @@ class SectionDet extends Component {
         } 
 
         let myImage = (myArrayImage && typeof myArrayImage[0] !== 'undefined') ? myArrayImage[0] : null;
+        //'./images/GuardianDef.jpg'
         if ( !myImage ) {
-            myImage = { file: '../images/GuardianDef.jpg'  }
+             myImage = { file: '../images/GuardianDef.jpg'  }
         }
         let myContent = document.createElement( 'html' );
         myContent.innerHTML = myNew.blocks.body[0].bodyHtml;
@@ -64,7 +65,7 @@ class SectionDet extends Component {
         }
         
         const mySecNew = {
-                 bodyHTML: myTexts2[0],
+                 bodyHTML: myTexts2,
                  image: myMainImage,
                  webUrl: myNew.webUrl,
                  webPublicationDate: myNew.webPublicationDate,
@@ -77,9 +78,7 @@ class SectionDet extends Component {
         const myNewFormatted = []
         myNewFormatted.push(<div className={`my${myClass}Cont`}>
                                 <div className={`my${myClass}Title`}>
-                                    <Link to={`/${mySecNew.sectionId}/${mySecNew.newId}`} >
                                         {mySecNew.webTitle}
-                                    </Link>
                                 </div>
                                 <div className={`my${myClass}SecName`}>{mySecNew.sectionName}</div>
                                 {mySecNew.image}
@@ -90,46 +89,31 @@ class SectionDet extends Component {
     }
 
     componentDidMount = async () => {
-        let mySecUrl = `${myMainUrl}${this.props.section}?api-key=${this.props.myApiKey}&show-blocks=main,body`;
-        let response = await axios.get(mySecUrl);
-
+        let myNewId = this.props.routerProps.match.params.newId.replace(/\-99\-/g, "/");
+        let myNoticiaUrl = `${myMainUrl}${myNewId}?api-key=${this.props.myApiKey}&show-blocks=main,body`;
+        let noticia = await axios.get(myNoticiaUrl);
+        //console.log(noticia.data.response.content)
         this.setState({
-            sectionName: this.props.section,
-            sectionContent: response.data.response.results
+            articleContent: noticia.data.response.content
         });
     }
 
     render() {
-        let myWebContent = [];
-        let myRightContent = [];
+        let myNewFormatted = [];
+        //console.log('Estoy aqui, queriendote!!!');
 
-        if (this.state.sectionContent) {
-           let myContArray = Object.values(this.state.sectionContent);
-            myWebContent = myContArray.slice(0,1).map((myNew, index) => {
-                console.log(myNew);
-                return ( <SectionMainNew key={index} myNewId={index} myNew={myNew} myNewFormat={this.myNewFormat}/> );
-            });
-            myRightContent = myContArray.slice(1,3).map((myNew, index) => {
-                return ( <SectionRigthNew key={index+1} myNewId={index+1} myNew={myNew} myNewFormat={this.myNewFormat}/> );
-            });
+        if ( Object.keys(this.state.articleContent).length !== 0 ) {
+            console.log(this.state.articleContent)
+            myNewFormatted = this.formatSingleArt(this.state.articleContent, 'Single');
         }
 
-    //console.log(this.props.routerProps);
-    return (
-        <div className="sectionCont" >
-            <div className="mCont">
-                {myWebContent}
-            </div>
-            <div className="sideCont">
-                {myRightContent}
-            </div>
-        </div>
-    );
-  }
+        return ( <div className="singContainer">
+                    <div>{myNewFormatted}</div>
+                    {/* <div>
+                        <FakePromo />
+                    </div> */}
+                </div>);
+    }
 }
 
-export default SectionDet;
-
-                    // { ( index > 0 ) && <SectionRigthNew  key={index} myNew={myNew} myNewFormat={this.myNewFormat}/> }
-                //     {/* <a href={myNew.webUrl}>{myNew.webTitle}</a>  */}
-                //    {/* <Noticia myApiKey={myApiKey} myApiUrl={myNew.apiUrl} /> */});
+export default SingleNew;

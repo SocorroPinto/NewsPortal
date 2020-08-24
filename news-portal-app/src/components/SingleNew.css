@@ -1,0 +1,50 @@
+.mySingleCont {
+    height: auto;
+    width: 950px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: start;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mySingleFigure {
+    height: 470px;
+    width: 8500px;
+    padding-top: 5px;
+}
+
+.mySingleImage {
+    height: 450px;
+    width: 850px;
+}
+
+.mySingleFigCap {
+    height: 75px;
+    width: 850px;
+    padding-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-weight: normal;
+}
+
+.mySingleSecName {
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+
+.mySingleTitle {
+    font-size: 35px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.mySinglePara {
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 25px;
+    width: 850px;
+    text-align: justify;
+}

@@ -14,7 +14,7 @@ class SectionRigthNew extends Component {
 
     render() {
         let myNewFormatted = [];
-        myNewFormatted = this.props.myNewFormat(this.props.myNew, 'Right');
+        myNewFormatted = this.props.myNewFormat(this.props.myNew, 'Right', this.props.myNewId);
 
         return ( <div>
                     {myNewFormatted} 

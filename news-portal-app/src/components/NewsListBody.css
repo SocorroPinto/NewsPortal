@@ -1,0 +1,60 @@
+#nlb-individual-container {
+  border-top: solid 1px lightgray;
+  width: 70vw;
+  display: flex;
+  flex-direction: rows;
+  justify-content: center;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#nlb-date-container {
+  /* border: 1px solid orange; */
+  width: 15vw;
+}
+#nlb-date-container p {
+  /* border: 1px solid black; */
+  margin-top: 0px;
+  font-size: xx-small;
+  font-weight: bold;
+  color: gray;
+}
+
+#nlb-title-container {
+  /* border: 1px solid green; */
+  width: 40vw;
+}
+
+#nlb-title-container-section {
+  /* border: 1px solid black; */
+  margin-top: 0px;
+  font-size: xx-small;
+  color: black;
+  margin-bottom: 0px;
+}
+
+#nlb-title-container-headline {
+  /* border: 1px solid black; */
+  margin-top: 0px;
+  font-size: large;
+  color: black;
+  cursor: pointer;
+  list-style-type: none;
+}
+
+#nlb-img-container {
+  /* border: 1px solid yellow; */
+  width: 15vw;
+}
+
+#nlb-img-container img {
+  width: 15vw;
+}
+
+#nlb-go-home {
+  text-align: right;
+  font-size: xx-small;
+  cursor: pointer;
+  list-style-type: none;
+}

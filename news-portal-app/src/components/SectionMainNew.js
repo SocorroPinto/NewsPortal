@@ -14,7 +14,7 @@ class SectionMainNew extends Component {
 
     render() {
         let myNewFormatted = [];
-        myNewFormatted = this.props.myNewFormat(this.props.myNew, 'Main');
+        myNewFormatted = this.props.myNewFormat(this.props.myNew, 'Main', this.props.myNewId);
 
         return ( <div>
                     {myNewFormatted} 
