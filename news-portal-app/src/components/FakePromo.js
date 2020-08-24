@@ -1,6 +1,27 @@
 import React, { Component } from "react";
 import "./FakePromo.css";
 
+const myDisplayInfo = [
+    { imageUrl: '../images/hotCakesProm.jpg',
+     message: 'all the HotCakes' },
+    { imageUrl: '../images/OmelettePromo.jpg',
+     message: 'all the Omelettes' },
+    { imageUrl: '../images/SaladPromo.jpeg',
+     message: 'all the Salads' },
+     { imageUrl: '../images/Bakery.jpg',
+     message: 'all the Bakery' },
+     { imageUrl: '../images/friedEggs.jpg',
+     message: 'all the Breakfasts' },
+     { imageUrl: '../images/GlutenFree.jpg',
+     message: 'Gluten Free Meals' },
+     { imageUrl: '../images/italianFood.jpeg',
+     message: 'Italian Food' },
+     { imageUrl: '../images/Pizza.jpg',
+     message: 'all the Pizzas' },
+     { imageUrl: '../images/Tacos.jpg',
+     message: 'all the Tacos' },
+     { imageUrl: '../images/Tostadas.jpg',
+     message: 'all the Tostadas' } ];
 
 class FakePromo extends Component {
     constructor(props) {
@@ -10,22 +31,27 @@ class FakePromo extends Component {
 
     render() {
         let myCoupon = null;
-        if ( this.props.url ) {
+        let myRanIdx = Math.floor(Math.random() * 9); 
+        let myRanImage = myDisplayInfo[myRanIdx];
+
+
             myCoupon = (<div className="coupon">
                 <div className="container">
-                    <h3>Socorro Company</h3>
+                    <h5>Fake Food Company</h5>
                  </div>
-                <img className="iCoupon" src={this.props.url} alt="Coupon"></img>
+                <img className="iCoupon" src={myRanImage.imageUrl} alt="Coupon"></img>
                 <div className="container blanco">
-                    <h2><b>20% OFF YOUR PURCHASE</b></h2> 
-                    <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum, salutandi delicatissimi eam ea. In sed nullam laboramus appellantur, mei ei omnis dolorem mnesarchum.</p>
+                    <h4><b>15% OFF YOUR PURCHASE</b></h4> 
+                    <p> Apply for {myRanImage.message}.
+                    Valid only in restaurants in Monterrey and Metropolitan Area.
+                    </p>
                 </div>
                     <div className="container">
                         <p>Use Promo Code: <span className="promo">BOH232</span></p>
                         <p className="expire">Expires: Jan 03, 2021</p>
                     </div> 
                 </div> );
-        }
+
 
         return ( <div className="myCoupon">
             {myCoupon}
@@ -33,4 +59,4 @@ class FakePromo extends Component {
     }
 }
 
-export default SingleNew;
+export default FakePromo;
