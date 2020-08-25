@@ -1,11 +1,11 @@
 #news-header-container {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100px;
   display: grid;
   grid-template-columns: 33% 34% 33%;
   grid-template-rows: 100%;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #000000;
 }
 
 #news-header-title {
@@ -15,6 +15,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-family: Apple Chancery, cursive;
 }
 
 #news-header-button-temp-container {

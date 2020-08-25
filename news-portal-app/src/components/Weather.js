@@ -44,10 +44,10 @@ class Weather extends Component {
   // It includes current temperature, icon and description of current conditions, city and country
   render() {
     let weatherWebData = [];
-    weatherWebData = this.state.weatherData.map((weatherInstance) => {
+    weatherWebData = this.state.weatherData.map((weatherInstance, index) => {
       const iconName = `/icons/${weatherInstance.weather.icon}.png`;
       return (
-        <div id="weather-container">
+        <div id="weather-container" key={index}>
           <div id="weather-temperature-container">
             <img id="weather-icon" alt="" src={iconName} />
             <p>{weatherInstance.app_temp}º</p>

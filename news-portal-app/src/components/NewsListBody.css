@@ -43,6 +43,10 @@
   list-style-type: none;
 }
 
+#nlb-title-container-headline:hover {
+  text-shadow: 2px 2px 3px gray;
+}
+
 #nlb-img-container {
   /* border: 1px solid yellow; */
   width: 15vw;
@@ -50,4 +54,6 @@
 
 #nlb-img-container img {
   width: 15vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 2px;
 }
