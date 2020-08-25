@@ -56,10 +56,13 @@ const NewsListBody = (props) => {
           <p id="nlb-title-container-section">
             {aNews.sectionName.toUpperCase()}
           </p>
-          {/* <Link to={`/search/${aNews.id}`} id="nlb-title-container-headline">
+          <Link
+            to={`/search/${aNews.id.replace(/\//g, "-99-")}`}
+            id="nlb-title-container-headline"
+          >
             {aNews.webTitle}
-          </Link> */}
-          <li id="nlb-title-container-headline">{aNews.webTitle}</li>
+          </Link>
+          {/* <li id="nlb-title-container-headline">{aNews.webTitle}</li> */}
         </div>
         <div id="nlb-img-container">
           <img alt="" src={myImage} />
