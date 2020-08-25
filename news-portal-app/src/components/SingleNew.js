@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./SingleNew.css";
 import axios from "axios";
 import FakePromo from "./FakePromo";
+import FakeAd from "./FakeAd";
 // let DomParser = require('dom-parser');
 // let parser = new DomParser();
 let myMainUrl = `https://content.guardianapis.com/`;
@@ -111,10 +112,12 @@ class SingleNew extends Component {
         return ( <div className="singContainer">
                     <div>{myNewFormatted}</div>
                     <div>
+                        <FakeAd/>
                         <FakePromo/>
+                        <FakeAd/>
                         <FakePromo/>
-                        <FakePromo/>
-                        <FakePromo/>
+                        <FakeAd/>
+                        {/* <FakePromo/> */}
                     </div> 
                 </div>);
     }

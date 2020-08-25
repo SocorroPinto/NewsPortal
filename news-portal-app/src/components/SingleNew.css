@@ -16,8 +16,9 @@
 
 .mySingleFigure {
     height: 470px;
-    width: 8500px;
+    width: 850px;
     padding-top: 5px;
+    background-color: black;
 }
 
 .mySingleImage {
@@ -26,12 +27,14 @@
 }
 
 .mySingleFigCap {
-    height: 75px;
+    height: auto;
     width: 850px;
     padding-bottom: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 9px;
     font-weight: normal;
+    background-color: black;
+    color: white;
 }
 
 .mySingleSecName {

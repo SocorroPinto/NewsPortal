@@ -27,11 +27,25 @@ class FakePromo extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            ranImageIndex: Math.floor(Math.random() * 9),
+            timer: null,
+        }
+    }
+
+    imageChanger = () => {
+        this.timer = setInterval(() => this.setState({
+            ranImageIndex: Math.floor(Math.random() * 9),
+        }), 9000);
+    }
+
+    componentDidMount = () => {
+        this.imageChanger();
     }
 
     render() {
         let myCoupon = null;
-        let myRanIdx = Math.floor(Math.random() * 9); 
+        let myRanIdx = this.state.ranImageIndex; 
         let myRanImage = myDisplayInfo[myRanIdx];
 
 
@@ -47,7 +61,7 @@ class FakePromo extends Component {
                     </p>
                 </div>
                     <div className="container">
-                        <p>Use Promo Code: <span className="promo">BOH232</span></p>
+                        <p>Use Promo Code: <span className="promo">{`BOH${Math.floor(Math.random() * 9999)}`}</span></p>
                         <p className="expire">Expires: Jan 03, 2021</p>
                     </div> 
                 </div> );
