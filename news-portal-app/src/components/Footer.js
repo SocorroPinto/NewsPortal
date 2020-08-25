@@ -1,12 +1,33 @@
 import React from "react";
-// import "./Header.css";
-import Weather from "./Weather.js";
+import "./Footer.css";
 
-// Header of the page. It displays title, suscribe and login buttons and temperature
+// Footer of the page. It displays several options
 const Footer = (props) => {
+  const options = [
+    "© 2020 The Profet Company",
+    "Contact Us",
+    "Work with us",
+    "Advertise",
+    "Privacy",
+    "Site Map",
+    "Help",
+    "Subscriptors",
+  ];
+  const creators =
+    "Designed & Developed by Socorro Pinto and Cesar Trevino, 2020";
+
+  const paddingImage = "/images/footerImg.png";
+  //Creating the HTML elemnt to display as a first line of footer
+  const footerWebLine1 = options.map((footerElement, index) => {
+    return <p key={index}>{footerElement}</p>;
+  }); // End mapping
+
+  // Returning the footer with the two lines
   return (
-    <div id="news-header-container">
-      <h1 id="news-header-title">Este es el Footer</h1>
+    <div>
+      <img alt="" src={paddingImage} />
+      <div id="line1Container">{footerWebLine1}</div>
+      <div id="line2Container">{creators}</div>
     </div>
   );
 };

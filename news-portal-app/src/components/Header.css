@@ -6,6 +6,7 @@
   grid-template-rows: 100%;
   font-size: calc(10px + 2vmin);
   color: #000000;
+  margin-bottom: 10px;
 }
 
 #news-header-title {
@@ -15,21 +16,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-family: Apple Chancery, cursive;
-}
-
-#news-header-button-temp-container {
-  grid-row: 1;
-  grid-column: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  font-weight: bolder;
 }
 
 #news-header-button-container {
+  grid-row: 1;
+  grid-column: 3;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-end;
   padding-right: 40px;
   box-sizing: border-box;
@@ -41,9 +36,13 @@
   height: 30px;
   margin: 5px 5px;
   border-radius: 3px;
+  background-color: #567b95;
+  color: #ffffff;
 }
 
-#news-header-temperature {
+#news-header-time-temp-container {
+  grid-row: 1;
+  grid-column: 1;
   padding-right: 40px;
-  padding-left: 15px;
+  padding-left: 50px;
 }

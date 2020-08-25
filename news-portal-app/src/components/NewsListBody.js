@@ -27,11 +27,9 @@ const formatDate = (stringDate) => {
 
 // Function to get the details, format and parse the list of news as a result of the search keyword
 const NewsListBody = (props) => {
-  // Local variabla ini
+  // Local variable ini
   let newsListWebArray = [];
   let formattedDate = "";
-
-  //   const newsListArray = Object.values(props.searchNewsList);
 
   //Mapping the list of News to the proper HTML format
   newsListWebArray = props.searchNewsList.map((aNews, index) => {
@@ -46,7 +44,8 @@ const NewsListBody = (props) => {
       myImage = aNews.fields.thumbnail;
     }
 
-    console.log("NEWS ID", aNews.id);
+    // Returning the HTML structure for each news in the list
+    // The title of each news is a Link to display the specific news
     return (
       <div id="nlb-individual-container" key={index}>
         <div id="nlb-date-container">
@@ -62,7 +61,6 @@ const NewsListBody = (props) => {
           >
             {aNews.webTitle}
           </Link>
-          {/* <li id="nlb-title-container-headline">{aNews.webTitle}</li> */}
         </div>
         <div id="nlb-img-container">
           <img alt="" src={myImage} />
