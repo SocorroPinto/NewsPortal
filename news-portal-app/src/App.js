@@ -7,13 +7,16 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NewsList from "./components/NewsList";
 import Search from "./components/Search";
-//import Test from "./components/Test";
 
 import SectionList from "./components/SectionList";
+import NewsBySection from "./components/NewsBySection";
 import SectionDet from "./components/SectionDet";
 import SingleNew from "./components/SingleNew";
 
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+// import { Route, Link, Switch, Redirect } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
+
+const DEF_IMAGE = '../images/GuardianDef.jpg';
 
 const sections = [
   { secId: "news", dispTag: " News" },
@@ -39,6 +42,120 @@ class App extends Component {
       currentView: "",
     };
   }
+
+  imageArticle = (pClass, pMainBlock, pImageData) => {
+    let myArrayImage = [];
+    let myImageCre = {
+            alt: '',
+            caption: '',
+            copyright: '',
+            credit: '',
+            source: '' }
+    let myImage = { file: DEF_IMAGE,
+                    creditos: null}
+
+    myArrayImage = pMainBlock.filter((elem, index) => {
+      return (index === 2 && elem.type === 'image')
+    });
+
+    if ( pImageData !== 'undefined' ) {
+      
+      for ( let elem in pImageData ) {
+        
+        switch ( elem ) {
+          case 'alt':
+            myImageCre.alt = pImageData[elem];
+          break;
+          case 'caption':
+            myImageCre.caption = pImageData[elem];
+          break;
+          case 'copyright':
+            myImageCre.copyright = pImageData[elem];
+          break;
+          case 'credit':
+            myImageCre.credit = pImageData[elem];
+          break;
+          case 'source':
+            myImageCre.source = pImageData[elem];
+          break;
+        }
+      }
+    }
+
+    myImage.creditos = myImageCre;
+    myImage.file = (myArrayImage && typeof myArrayImage[0] !== 'undefined') ? myArrayImage[0].file : myImage.file;
+
+    let myMainImage = (<figure className={`my${pClass}Figure`}>
+                        <img className={`my${pClass}Image`} src={myImage.file} alt={myImage.creditos.alt}></img>
+                        <figcaption className={`my${pClass}FigCap`} >{myImage.creditos.caption}
+                                    <div>{myImage.creditos.credit}</div>
+                                    <div>{myImage.creditos.copyright}</div>
+                                    <div>{myImage.creditos.source}</div>
+                        </figcaption>
+                        </figure>);
+
+    return myMainImage;
+  }
+
+  paragraphsArticle = (pClass, pBody) => {
+    let myContent = document.createElement( 'html' );
+    myContent.innerHTML = pBody;
+      
+    let myParagraphs = myContent.querySelectorAll('p');
+    let myTexts = Array.prototype.slice.call(myParagraphs);
+    const myTexts2 = myTexts.map((myText, index) => {
+      return (<p className={`my${pClass}Para`} key={index}>{myText.innerText}</p>);
+    });
+
+    if ( pClass === 'Single' ) {
+      return myTexts2;
+    } else {
+      return myTexts2[0];
+    }
+  }
+
+  myNewFormat = (myNew, myClass) => {
+    let myMainImage = null;
+    if ( typeof myNew.blocks.main !== 'undefined' ) {
+      myMainImage = this.imageArticle(myClass, myNew.blocks.main.elements[0].assets, myNew.blocks.main.elements[0].imageTypeData)
+    } else {
+      myMainImage = this.imageArticle(myClass, [], {})
+    }
+
+    let myParagraphs = null;
+    if ( typeof myNew.blocks.body[0].bodyHtml !== 'undefined' ) {
+      myParagraphs = this.paragraphsArticle(myClass, myNew.blocks.body[0].bodyHtml)
+    }
+
+    const mySecNew = {
+             bodyHTML: myParagraphs,
+             image: myMainImage,
+             webUrl: myNew.webUrl,
+             webPublicationDate: myNew.webPublicationDate,
+             webTitle: myNew.webTitle,
+             sectionName: myNew.sectionName,
+             sectionId: myNew.sectionId,
+             newId: myNew.id.replace(/\//g, "-99-")
+    }
+
+    const myNewFormatted = []
+    myNewFormatted.push(<div key={`content${myClass}`} className={`my${myClass}Cont`}>
+                            <div className={`my${myClass}Title`}>
+                                <Link to={`/${mySecNew.sectionId}/${mySecNew.newId}`} >
+                                    {mySecNew.webTitle}
+                                </Link>
+                            </div>
+                            <div className={`my${myClass}SecName`}>{mySecNew.sectionName}</div>
+                            {mySecNew.image}
+                            {myClass === 'Single' && 
+                            <a className={`my${myClass}LinkArt`} href={mySecNew.webUrl}>Go to The Guardian original article.</a> }
+                            <div className={`my${myClass}ParCont`}>{mySecNew.bodyHTML}</div>
+                        </div>);
+
+    return myNewFormatted;
+  }
+
+
 
   handleSearch = async (searchString) => {
     const urlNewsSearch = `https://content.guardianapis.com/search?api-key=8e3808f1-0f78-4746-ba70-fd8bf8ce21f4&q=${searchString}&show-fields=thumbnail`;
@@ -75,7 +192,7 @@ class App extends Component {
   }; // End pageView
 
   render() {
-    const myRoutes = sections.map((section, index) => {
+    const myRoutes = sections.slice(1,sections.length).map((section, index) => {
       return (
         <Route
           exact={true}
@@ -87,6 +204,7 @@ class App extends Component {
               <SectionDet
                 myApiKey={myApiKey}
                 section={section.secId}
+                myNewFormat={this.myNewFormat}
                 routerProps={routerProps}
               />
             </div>
@@ -95,7 +213,7 @@ class App extends Component {
       );
     });
 
-    const myRoutesSingle = sections.map((section, index) => {
+    const myRoutesSingle = sections.slice(1,sections.length).map((section, index) => {
       return (
         <Route
           key={index}
@@ -103,7 +221,7 @@ class App extends Component {
           render={(routerProps) => (
             <div className="allContent">
               <SectionList myApiKey={myApiKey} allSections={sections} />
-              <SingleNew myApiKey={myApiKey} routerProps={routerProps} />
+              <SingleNew myApiKey={myApiKey} myNewFormat={this.myNewFormat} routerProps={routerProps} />
             </div>
           )}
         />
@@ -124,7 +242,13 @@ class App extends Component {
             <Route exact path="/">
               <div>
                 <SectionList myApiKey={myApiKey} allSections={sections} />
-                <SectionDet myApiKey={myApiKey} section="news" />
+                <NewsBySection myApiKey={myApiKey}  myNewFormat={this.myNewFormat} section="news" />
+              </div>
+            </Route>
+            <Route exact path="/news">
+              <div>
+                <SectionList myApiKey={myApiKey} allSections={sections} />
+                <NewsBySection myApiKey={myApiKey}  myNewFormat={this.myNewFormat} section="news" />
               </div>
             </Route>
             <Route exact path="/search">
@@ -135,23 +259,11 @@ class App extends Component {
                   handleSearch={this.handleSearch}
                   setView={this.setView}
                 />
-                {/* <NewsList
-                    searchNewsList={this.state.searchNewsList}
-                    searchKeyword={this.state.searchKeyword}
-                    setView={this.setView}
-                  /> */}
                 {this.pageView()}
               </div>
             </Route>
             {myRoutes}
             {myRoutesSingle}
-
-            {/* <Route exact path="/search" >
-                <div>
-                  <SectionList myApiKey={myApiKey} allSections={sections} />
-                  <>
-                </div>
-            </Route> */}
           </Switch>
         </main>
         <footer className="">

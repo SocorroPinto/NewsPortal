@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "./SectionMainNew.css";
-import { scryRenderedComponentsWithType } from "react-dom/test-utils";
+import "./SectionBigNews.css";
 
-class SectionMainNew extends Component {
+class SectionBigNews extends Component {
     constructor(props) {
         super(props);
 
@@ -22,4 +21,4 @@ class SectionMainNew extends Component {
     }
 }
 
-export default SectionMainNew;
+export default SectionBigNews;

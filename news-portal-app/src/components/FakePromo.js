@@ -43,6 +43,10 @@ class FakePromo extends Component {
         this.imageChanger();
     }
 
+    componentWillUnmount = () => {
+        clearInterval(this.timer);
+    }
+
     render() {
         let myCoupon = null;
         let myRanIdx = this.state.ranImageIndex; 

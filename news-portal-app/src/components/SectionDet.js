@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import axios from "axios";
-import SectionMainNew from './SectionMainNew';
+import SectionBigNews from './SectionBigNews';
 import SectionRigthNew from './SectionRigthNew';
-import { Link } from "react-router-dom";
 import './SectionDet.css';
 let myMainUrl = `https://content.guardianapis.com/`;
 
@@ -15,78 +14,6 @@ class SectionDet extends Component {
             sectionName: null,
             sectionContent: null
         };
-    }
-
-    myNewFormat = (myNew, myClass, articleId) => {
-        let myArrayImage = [];
-        let myImageCre = {};
-
-        if ( typeof myNew.blocks.main !== 'undefined') {
-            myArrayImage = myNew.blocks.main.elements[0].assets.filter((elem, index) => {
-                return (index === 2 && elem.type === 'image')
-            });
-
-            myImageCre = {
-                alt: myNew.blocks.main.elements[0].imageTypeData.alt,
-                caption: myNew.blocks.main.elements[0].imageTypeData.caption,
-                copyright: myNew.blocks.main.elements[0].imageTypeData.copyright,
-                credit: myNew.blocks.main.elements[0].imageTypeData.credit,
-                source: myNew.blocks.main.elements[0].imageTypeData.source,
-            }
-        } 
-
-        let myImage = (myArrayImage && typeof myArrayImage[0] !== 'undefined') ? myArrayImage[0] : null;
-        if ( !myImage ) {
-            myImage = { file: '../images/GuardianDef.jpg'  }
-        }
-        let myContent = document.createElement( 'html' );
-        myContent.innerHTML = myNew.blocks.body[0].bodyHtml;
-
-        let myParagraphs = myContent.querySelectorAll('p');
-        let myTexts = Array.prototype.slice.call(myParagraphs);
-        const myTexts2 = myTexts.map((myText, index) => {
-               return (<p className={`my${myClass}Para`} key={index}>{myText.innerText}</p>);
-        });
-
-        // console.log(myTexts2[0])
-        let myMainImage = null;
-        if ( typeof myImageCre !== 'undefined' && myImage.file !== null) {
-            myMainImage = (<figure className={`my${myClass}Figure`}>
-                            <img className={`my${myClass}Image`} src={myImage.file} alt={myImageCre.alt}></img>
-                            <figcaption className={`my${myClass}FigCap`} >{myImageCre.caption}
-                                        <div>{myImageCre.credit}</div>
-                                        <div>{myImageCre.copyright}</div>
-                                        <div>{myImageCre.source}</div>
-                            </figcaption>
-                            </figure>);
-        } else { 
-            myMainImage = <img className={`my${myClass}Image`} src={myImage.file} alt=""></img>
-        }
-        
-        const mySecNew = {
-                 bodyHTML: myTexts2[0],
-                 image: myMainImage,
-                 webUrl: myNew.webUrl,
-                 webPublicationDate: myNew.webPublicationDate,
-                 webTitle: myNew.webTitle,
-                 sectionName: myNew.sectionName,
-                 sectionId: myNew.sectionId,
-                 newId: myNew.id.replace(/\//g, "-99-")
-        }
-
-        const myNewFormatted = []
-        myNewFormatted.push(<div className={`my${myClass}Cont`}>
-                                <div className={`my${myClass}Title`}>
-                                    <Link to={`/${mySecNew.sectionId}/${mySecNew.newId}`} >
-                                        {mySecNew.webTitle}
-                                    </Link>
-                                </div>
-                                <div className={`my${myClass}SecName`}>{mySecNew.sectionName}</div>
-                                {mySecNew.image}
-                                {mySecNew.bodyHTML}
-                            </div>);
-
-        return myNewFormatted;
     }
 
     componentDidMount = async () => {
@@ -104,23 +31,21 @@ class SectionDet extends Component {
         let myRightContent = [];
 
         if (this.state.sectionContent) {
-           let myContArray = Object.values(this.state.sectionContent);
-            myWebContent = myContArray.slice(0,1).map((myNew, index) => {
-                console.log(myNew);
-                return ( <SectionMainNew key={index} myNewId={index} myNew={myNew} myNewFormat={this.myNewFormat}/> );
-            });
-            myRightContent = myContArray.slice(1,3).map((myNew, index) => {
-                return ( <SectionRigthNew key={index+1} myNewId={index+1} myNew={myNew} myNewFormat={this.myNewFormat}/> );
-            });
+            let myContArray = Object.values(this.state.sectionContent);
+             myWebContent = myContArray.slice(0,1).map((myNew, index) => {
+                 return ( <SectionBigNews key={index} myNewId={index} myNew={myNew} myNewFormat={this.props.myNewFormat}/> );
+             });
+             myRightContent = myContArray.slice(1,3).map((myNew, index) => {
+                 return ( <SectionRigthNew key={index+1} myNewId={index+1} myNew={myNew} myNewFormat={this.props.myNewFormat}/> );
+             });
         }
 
-    //console.log(this.props.routerProps);
     return (
         <div className="sectionCont" >
-            <div className="mCont">
+            <div key="0" className="mCont">
                 {myWebContent}
             </div>
-            <div className="sideCont">
+            <div key="2" className="sideCont">
                 {myRightContent}
             </div>
         </div>

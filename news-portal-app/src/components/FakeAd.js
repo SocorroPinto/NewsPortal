@@ -34,6 +34,10 @@ class FakeAd extends Component {
         this.gifChanger();
     }
 
+    componentWillUnmount = () => {
+        clearInterval(this.timer);
+    }
+
     render() {
         let myFakeAd = null;
         let myRanIdx = this.state.ranGifIndex; 

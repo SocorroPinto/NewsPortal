@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./SectionRigthNew.css";
-import { scryRenderedComponentsWithType } from "react-dom/test-utils";
 
 class SectionRigthNew extends Component {
     constructor(props) {

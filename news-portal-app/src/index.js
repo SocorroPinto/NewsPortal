@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router
 } from "react-router-dom"
 
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+// import { Route, Link, Switch, Redirect } from "react-router-dom";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';

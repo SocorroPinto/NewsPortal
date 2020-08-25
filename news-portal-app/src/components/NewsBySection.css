@@ -1,0 +1,8 @@
+.horizontalNews {
+    display: flex;
+    flex-direction: row;
+}
+
+.horizontalNews {
+    width: auto;
+} 
