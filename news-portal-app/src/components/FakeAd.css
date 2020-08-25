@@ -1,0 +1,17 @@
+/* body {
+    font-family: Arial;
+  } */
+  
+  .fakeAd {
+    /* border: 2px dotted #bbb; */
+    width: 80%;
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 250px;
+    margin: 12px;
+  }
+  
+  
+  .iGif {
+    width: 100%;
+  }

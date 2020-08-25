@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./SingleNew.css";
 import axios from "axios";
-//import FakePromo from "./FakePromo";
+import FakePromo from "./FakePromo";
+import FakeAd from "./FakeAd";
 // let DomParser = require('dom-parser');
 // let parser = new DomParser();
 let myMainUrl = `https://content.guardianapis.com/`;
-//https://blog.iese.edu/the-media-industry/files/2019/05/2016.jpg
+
 
 
 class SingleNew extends Component {
@@ -82,7 +83,8 @@ class SingleNew extends Component {
                                 </div>
                                 <div className={`my${myClass}SecName`}>{mySecNew.sectionName}</div>
                                 {mySecNew.image}
-                                {mySecNew.bodyHTML}
+                                <a className={`my${myClass}LinkArt`} href={mySecNew.webUrl}>Go to The Guardian original article.</a>
+                                <div className={`my${myClass}ParCont`}>{mySecNew.bodyHTML}</div>
                             </div>);
 
         return myNewFormatted;
@@ -109,9 +111,14 @@ class SingleNew extends Component {
 
         return ( <div className="singContainer">
                     <div>{myNewFormatted}</div>
-                    {/* <div>
-                        <FakePromo />
-                    </div> */}
+                    <div>
+                        <FakeAd/>
+                        <FakePromo/>
+                        <FakeAd/>
+                        <FakePromo/>
+                        <FakeAd/>
+                        {/* <FakePromo/> */}
+                    </div> 
                 </div>);
     }
 }

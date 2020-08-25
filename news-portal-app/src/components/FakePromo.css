@@ -3,16 +3,21 @@
   } */
   
   .coupon {
-    border: 5px dotted #bbb;
+    border: 2px dotted #bbb;
     width: 80%;
     border-radius: 15px;
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 250px;
+    margin: 12px;
   }
   
   .container {
     padding: 2px 16px;
     background-color: #f1f1f1;
+  }
+
+  .container p {
+   font-size: 12px;
   }
 
   .blanco {
