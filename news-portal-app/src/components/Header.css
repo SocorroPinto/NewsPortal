@@ -17,9 +17,15 @@
   justify-content: center;
 }
 
-#news-header-button-container {
+#news-header-button-temp-container {
   grid-row: 1;
   grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#news-header-button-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -34,4 +40,9 @@
   height: 30px;
   margin: 5px 5px;
   border-radius: 3px;
+}
+
+#news-header-temperature {
+  padding-right: 40px;
+  padding-left: 15px;
 }

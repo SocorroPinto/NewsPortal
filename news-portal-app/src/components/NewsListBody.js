@@ -47,25 +47,13 @@ const NewsListBody = (props) => {
           <li id="nlb-title-container-headline">{aNews.webTitle}</li>
         </div>
         <div id="nlb-img-container">
-          <img src={aNews.fields.thumbnail} />
+          <img alt="" src={aNews.fields.thumbnail} />
         </div>
       </div>
     );
   });
 
-  return (
-    <div>
-      {newsListWebArray}
-      <li
-        id="nlb-go-home"
-        onClick={() => {
-          props.setView("home");
-        }}
-      >
-        Go to Home Page >>
-      </li>
-    </div>
-  );
+  return <div>{newsListWebArray}</div>;
 };
 
 export default NewsListBody;

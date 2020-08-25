@@ -1,0 +1,20 @@
+#search-container {
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-container input {
+  line-height: 2em;
+  width: 20em;
+}
+
+#search-container button {
+  line-height: 25px;
+  border-radius: 3px;
+}
+
+#search-container * {
+  margin: 5px 5px;
+}

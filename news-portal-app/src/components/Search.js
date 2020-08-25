@@ -1,8 +1,8 @@
 import React from "react";
-// import { BsSearch } from "react-icons/bs";
+import "./Search.css";
 
+// Display the search form. It includes the search field and the Go button
 const Search = (props) => {
-  console.log(props.searchString);
   return (
     <form
       onSubmit={(event) => {
@@ -11,8 +11,12 @@ const Search = (props) => {
         props.handleSearch(event.target.newsSearch.value);
       }}
     >
-      <input type="search" id="newsSearch" name="newsSearch"></input>
-      {/* <BsSearch /> */}
+      <div id="search-container">
+        <input type="text" name="newsSearch" placeholder="SEARCH"></input>
+        <button id="searchButton" name="searchButton">
+          Go
+        </button>
+      </div>
     </form>
   );
 }; // End Search
