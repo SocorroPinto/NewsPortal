@@ -4,6 +4,7 @@ import axios from "axios";
 import "./App.css";
 
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import NewsList from "./components/NewsList";
 import Search from "./components/Search";
 //import Test from "./components/Test";
@@ -153,6 +154,9 @@ class App extends Component {
             </Route> */}
           </Switch>
         </main>
+        <footer className="">
+          <Footer />
+        </footer>
       </div>
     );
   }
