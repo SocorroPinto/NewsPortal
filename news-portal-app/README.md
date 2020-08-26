@@ -77,7 +77,7 @@ The app is handled mainly by the routes defined in App.js
 List of main components and short explanation:
 + Header
     + Contains our Portal Title
-        ![Title:](./public/planning/appTitle.png)
+        ![Title:](./public/planning/appTitle.png =500x250)
 
     + Weather Info and Time:
         1. Time
@@ -104,7 +104,7 @@ List of main components and short explanation:
     + Contains one main article and two small ones
         1. SectionBigNews
         2. SectionRightNews
-        ![SectionDetails:](./public/planning/mainRoute.png)
+        ![SectionDetails:](./public/planning/SectionDetails.png)
 
 + SingleNew
     + Contains the whole articule and some fake promos and ads
