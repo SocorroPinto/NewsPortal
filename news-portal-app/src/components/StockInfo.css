@@ -1,21 +1,37 @@
 .myStockInfo {
   display: flex;
   flex-direction: row;
-  border: 1px solid red;
+  justify-content: flex-end;
+  width: 51%;
+  margin-right: 40px;
 }
 
-.stockValues {
+.myStockForm {
+  font-size: 12px;
   display: flex;
   flex-direction: row;
-  align-content: center;
-  border: 1px solid blue;
-}
-
-.stockLowMax {
-  margin: 5px;
-  border: 1px solid yellow;
+  align-items: center;
 }
 
 .stockPrice {
-  border: 1px solid magenta;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.stockValues {
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.stockLowMax {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  margin-left: 5px;
 }
