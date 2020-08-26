@@ -1,11 +1,11 @@
-# Project 3 - The Profeth 
+# Project 3 - The Propeth 
 Developers: César Treviño y Socorro Pinto
 
 ***
 
 #The application
 
-The Profeth is a Portal News App. 
+The Propeth is a Portal News App. 
 There you can read news for the following sections:
 
 + World
@@ -32,7 +32,7 @@ Used tools for this application:
 
 The following command could be used to start the application:
 `npm start`
-this will open [The Profeth](http://localhost:300/) to view in the browser.
+this will open [The Propeth](http://localhost:300/) to view in the browser.
 
 ***
 
@@ -75,7 +75,7 @@ And they have the following hierarchy:
 The app is handled mainly by the routes defined in App.js
 
 List of main components and short explanation:
-+ Header
++ ### Header
     + Contains our Portal Title
         ![Title:](./public/planning/appTitle.png =500x250)
 
@@ -87,26 +87,33 @@ List of main components and short explanation:
         These components have a timer that keeps the info updated.
         The Weather component will obtain your GeoLocation and based on that will show the weather.
 
++ ### SectionList
     + And the list of sections ribbon:
+        1. SectionList
+        2. StockInfo
         ![Ribbon:](./public/planning/sectionsRibbon.png)
 
-+ Search
+
+        The stock info will display by default John Deere Stocks.
+        Also allows you to search by company and display their stock info.
+
++ ### Search
     + Contains a form that allows you to input your search and see the results:
         1. NewsList
         ![ListSearch:](./public/planning/searchResult.png)
 
-+ NewsBySection
++ ### NewsBySection
     + Contains links to 3 articles for 3 sections
         1. SectionRightNews
         ![ExampleImage:](./public/planning/mainRoute.png)
 
-+ SectionDet
++ ### SectionDet
     + Contains one main article and two small ones
         1. SectionBigNews
         2. SectionRightNews
         ![SectionDetails:](./public/planning/SectionDetails.png)
 
-+ SingleNew
++ ### SingleNew
     + Contains the whole articule and some fake promos and ads
         1. FakeAd
         2. FakePromo
@@ -115,6 +122,4 @@ List of main components and short explanation:
         The promos have a timer that changes them every few secons.
         The ads are gifs that change also every few seconds.
 
-+ StockInfo
-    It is showed in the ribbon and will display by default John Deere Stocks.
-    Also allows you to search by company and display their stock info.
+This is the documentation for this project, if you have any questions or comments, please, don't hesitate to contact me.
