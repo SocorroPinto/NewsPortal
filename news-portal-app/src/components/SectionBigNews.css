@@ -1,54 +1,84 @@
+.sectionCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .myMainCont {
-    height: auto;
-    width: 800px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    text-align: start;
-    font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  height: auto;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.myMainFigure {
-    /* height: 470px;
-    width: 700px; */
-    padding-top: 5px;
-    background-color: black; 
+.myMainTitle {
+  width: 700px;
+  font-size: 28px;
+  font-weight: bold;
+  padding-top: 10px;
+  display: Flex;
 }
 
-.myMainImage {
-    height: 450px;
-    width: 700px;
+.myMainTitle a {
+  color: #000000;
+  text-align: justify;
 }
 
-.myMainFigCap {
-    height: auto;
-    width: 100%;
-    padding-bottom: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 9px;
-    font-weight: normal;
-    background-color: black;
-    color: white;
+.myMainTitle a:active,
+a:visited,
+a:link {
+  text-decoration: none;
+}
+
+.myMainTitle a:hover {
+  text-decoration: underline;
 }
 
 .myMainSecName {
-    font-size: 14px;
-    font-weight: bold;
-    padding-left: 10px;
+  width: 700px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
+.myMainFigure {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
 
-.myMainTitle {
-    font-size: 28px;
-    font-weight: bold;
-    padding: 10px;
+.myMainImage {
+  height: 450px;
+  width: 700px;
+  padding-bottom: 0px;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.myMainFigCap {
+  height: auto;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: normal;
+  background-color: black;
+  color: white;
 }
 
 .myMainPara {
-    font-size: 15px;
-    font-weight: bold;
-    padding-left: 25px;
-    width: 700px;
-    text-align: justify;
+  font-size: 15px;
+  width: 700px;
+  text-align: justify;
 }
 
+.sideCont {
+  border-left: 1px solid lightgray;
+}

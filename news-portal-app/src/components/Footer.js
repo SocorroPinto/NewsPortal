@@ -4,7 +4,7 @@ import "./Footer.css";
 // Footer of the page. It displays several options
 const Footer = (props) => {
   const options = [
-    "© 2020 The Profet Company",
+    "© 2020 The True Media Company",
     "Contact Us",
     "Work with us",
     "Advertise",

@@ -1,38 +1,33 @@
-/* body {
-    font-family: Arial;
-  } */
-  
-  .coupon {
-    border: 2px dotted #bbb;
-    width: 80%;
-    border-radius: 15px;
-    margin: 0 auto;
-    max-width: 250px;
-    margin: 12px;
-  }
-  
-  .container {
-    padding: 2px 16px;
-    background-color: #f1f1f1;
-  }
+.coupon {
+  border: 2px dotted #bbb;
+  width: 80%;
+  margin: 0 auto;
+  max-width: 250px;
+  margin: 12px;
+}
 
-  .container p {
-   font-size: 12px;
-  }
+.container {
+  padding: 2px 16px;
+  background-color: #f1f1f1;
+}
 
-  .blanco {
-    background-color: white;
-  }
-  
-  .iCoupon {
-    width: 100%;
-  }
+.container p {
+  font-size: 12px;
+}
 
-  .promo {
-    background: #ccc;
-    padding: 3px;
-  }
-  
-  .expire {
-    color: red;
-  }
+.blanco {
+  background-color: white;
+}
+
+.iCoupon {
+  width: 100%;
+}
+
+.promo {
+  background: #ccc;
+  padding: 3px;
+}
+
+.expire {
+  color: red;
+}

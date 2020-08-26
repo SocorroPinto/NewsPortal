@@ -1,53 +1,69 @@
 .myRightCont {
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
-    width: 410px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    text-align: start;
-    font-family: Arial, Helvetica, sans-serif;
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
 }
 
-.myRightFigure {
-    /* padding-left: 25px;
-    padding-top: 5px; */
-    background-color: black; 
+.myRightTitle {
+  font-size: 15px;
+  font-weight: bold;
+  width: 350px;
+  padding: 5px;
 }
 
-.myRightImage {
-    height: 200px;
-    width: 350px;
+.myRightTitle a {
+  color: #000000;
 }
 
-.myRightFigCap {
-    height: auto;
-    width: 350px;
-    padding-bottom: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 7px;
-    font-weight: normal;
-    background-color: black;
-    color: white;
+.myRightTitle a:active,
+a:visited,
+a:link {
+  text-decoration: none;
+}
+
+.myRightTitle a:hover {
+  text-decoration: underline;
 }
 
 .myRightSecName {
-    font-size: 10px;
-    font-weight: bold;
-    padding-left: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  width: 350px;
 }
 
+.myRightFigure {
+  background-color: black;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
 
-.myRightTitle {
-    font-size: 15px;
-    font-weight: bold;
-    padding: 5px;
+.myRightImage {
+  height: 200px;
+  width: 350px;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.myRightFigCap {
+  height: auto;
+  width: 350px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 7px;
+  font-weight: normal;
+  background-color: black;
+  color: white;
 }
 
 .myRightPara {
-    font-size: 12px;
-    font-weight: bold;
-    padding-left: 13px;
-    width: 350px;
-    text-align: justify;
+  font-size: 12px;
+  width: 350px;
+  text-align: justify;
 }
-

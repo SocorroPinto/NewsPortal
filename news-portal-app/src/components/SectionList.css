@@ -2,7 +2,10 @@
 
 .navbar {
   width: 100%;
-  background-color: #555;
+  /* background-color: #555; */
+  background-color: #ffffff;
+  border-bottom: 3px double black;
+  border-top: 1px solid lightgray;
   overflow: auto;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -10,17 +13,20 @@
 .navbar a {
   float: left;
   padding: 12px;
-  color: white;
+  /* color: white; */
+  color: black;
   text-decoration: none;
   font-size: 17px;
 }
 
 .navbar a:hover {
-  background-color: #000;
+  /* background-color: #000; */
+  /* background-color: lightgray; */
+  text-shadow: 1px 1px 2px black;
 }
 
 .active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
 }
 
 @media screen and (max-width: 500px) {

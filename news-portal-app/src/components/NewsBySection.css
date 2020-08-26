@@ -1,8 +1,28 @@
 .horizontalNews {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .horizontalNews {
-    width: auto;
-} 
+  width: auto;
+}
+
+.secNewsRoute {
+  border: 1px solid red;
+}
+
+.secNewsRouteCont {
+  border: 1px solid blue;
+}
+
+.horizontalNews {
+  border: 1px solid orangered;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.world-3 {
+  border: 1px solid green;
+}

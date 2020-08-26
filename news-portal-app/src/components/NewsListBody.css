@@ -39,8 +39,14 @@
   list-style-type: none;
 }
 
+#nlb-title-container-headline:active,
+a:visited,
+a:link {
+  text-decoration: none;
+}
+
 #nlb-title-container-headline:hover {
-  text-shadow: 2px 2px 3px gray;
+  text-decoration: underline;
 }
 
 #nlb-img-container {
