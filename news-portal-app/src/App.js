@@ -141,7 +141,7 @@ class App extends Component {
     const myNewFormatted = []
     myNewFormatted.push(<div key={`content${myClass}`} className={`my${myClass}Cont`}>
                             <div className={`my${myClass}Title`}>
-                                <Link to={`/${mySecNew.sectionId}/${mySecNew.newId}`} >
+                                <Link className={`my${myClass}Link`} to={`/${mySecNew.sectionId}/${mySecNew.newId}`} >
                                     {mySecNew.webTitle}
                                 </Link>
                             </div>

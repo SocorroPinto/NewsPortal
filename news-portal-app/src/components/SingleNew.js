@@ -32,8 +32,8 @@ class SingleNew extends Component {
         }
 
         return ( <div className="singContainer">
-                    <div>{myNewFormatted}</div>
-                    <div>
+                    <div className="displayedNew" >{myNewFormatted}</div>
+                    <div className="fakeAdvertising">
                         <FakeAd/>
                         <FakePromo/>
                         <FakeAd/>

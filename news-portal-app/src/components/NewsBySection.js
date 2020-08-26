@@ -48,9 +48,11 @@ class NewsBySection extends Component {
 
             myHorizNews = this.state.sections.map((elem, index) => {
                 return (<div key={`${elem}-${index}`}>
-                            <Link key={elem+index} to={`/${elem}`} >
-                                {this.state.sectNames[index]}
-                            </Link>
+                            <div key={elem+'__'+index}  className="SectionTitle">
+                                <Link className="SectionTitleLink" key={elem+index} to={`/${elem}`} >
+                                    {this.state.sectNames[index]}
+                                </Link>
+                            </div>
                             <div key={elem+'-'+index}  className="horizontalNews">
                                 {mySectionContent[index]}
                             </div>
