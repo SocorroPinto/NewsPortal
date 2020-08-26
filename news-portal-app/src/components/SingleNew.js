@@ -3,6 +3,8 @@ import "./SingleNew.css";
 import axios from "axios";
 import FakePromo from "./FakePromo";
 import FakeAd from "./FakeAd";
+
+
 let myMainUrl = `https://content.guardianapis.com/`;
 
 class SingleNew extends Component {

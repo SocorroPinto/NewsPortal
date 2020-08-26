@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import StockInfo from "./StockInfo";
 import './SectionList.css';
 
 class SectionList extends Component {
@@ -20,6 +21,7 @@ class SectionList extends Component {
     return (
         <div className="navbar">
             {myLinks}
+            <StockInfo/>
         </div>
     );
   }

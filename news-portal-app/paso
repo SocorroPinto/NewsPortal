@@ -1,0 +1,7 @@
+NPPN742APUQQCUCU
+
+
+https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=Standard&apikey=NPPN742APUQQCUCU
+https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=DE&interval=5min&apikey=NPPN742APUQQCUCU
+
+https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=MSFT&interval=5min&apikey=NPPN742APUQQCUCU

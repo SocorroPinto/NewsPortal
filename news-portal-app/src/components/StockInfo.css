@@ -1,0 +1,21 @@
+.myStockInfo {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
+}
+
+.stockValues {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  border: 1px solid blue;
+}
+
+.stockLowMax {
+  margin: 5px;
+  border: 1px solid yellow;
+}
+
+.stockPrice {
+  border: 1px solid magenta;
+}
