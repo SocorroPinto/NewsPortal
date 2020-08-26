@@ -4,7 +4,7 @@ import "./Footer.css";
 // Footer of the page. It displays several options
 const Footer = (props) => {
   const options = [
-    "© 2020 The True Media Company",
+    "© The True Media Company",
     "Contact Us",
     "Work with us",
     "Advertise",
@@ -15,6 +15,11 @@ const Footer = (props) => {
   ];
   const creators =
     "Designed & Developed by Socorro Pinto and Cesar Trevino, 2020";
+
+  const disclosure =
+    "We do not own the news and images displayed at this page. The app has been developed for educational purposes";
+
+  const resources = "API's resource: The guardian, Wheaterbit";
 
   const paddingImage = "/images/footerImg.png";
   //Creating the HTML elemnt to display as a first line of footer
@@ -27,7 +32,9 @@ const Footer = (props) => {
     <div>
       <img alt="" src={paddingImage} />
       <div id="line1Container">{footerWebLine1}</div>
-      <div id="line2Container">{creators}</div>
+      <div className="line2Container">{creators}</div>
+      <div className="line2Container">{disclosure}</div>
+      <div className="line2Container">{resources}</div>
     </div>
   );
 };

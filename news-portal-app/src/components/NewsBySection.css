@@ -8,21 +8,43 @@
 }
 
 .secNewsRoute {
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+
+.SectionTitle {
+  /* border: 1px solid green; */
+  margin-top: 20px;
+}
+
+.SectionTitleLink {
+  color: #000000;
+  font-weight: bold;
+  padding-left: 30px;
+}
+
+.SectionTitleLink:active,
+a:visited,
+a:link {
+  text-decoration: none;
+}
+
+.SectionTitleLink:hover {
+  text-decoration: underline;
 }
 
 .secNewsRouteCont {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .horizontalNews {
-  border: 1px solid orangered;
+  /* border: 1px solid orangered; */
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
 }
 
-.world-3 {
-  border: 1px solid green;
+.myRightCont {
+  /* border: 1px solid green; */
+  margin-top: 5px;
 }

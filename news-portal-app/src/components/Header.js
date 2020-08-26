@@ -7,7 +7,14 @@ import Time from "./Time.js";
 const Header = (props) => {
   return (
     <div id="news-header-container">
-      <h1 id="news-header-title">THE PROPHET</h1>
+      <div id="news-header-img-title-container">
+        <h1 id="news-header-title">The Prophet</h1>
+        <img
+          className="news-header-image"
+          alt=""
+          src="/images/prophetright.png"
+        />
+      </div>
       <div id="news-header-button-container">
         <button>SUSCRIBE NOW</button>
         <button>LOGIN</button>

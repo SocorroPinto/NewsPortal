@@ -22,18 +22,15 @@
   box-sizing: border-box;
 }
 
-.mySingleTitle a {
+.mySingleLink {
   color: #000000;
 }
 
-.mySingleTitle a:active,
-a:visited,
-a:link {
+.mySingleLink:active,
+:visited,
+:link,
+:hover {
   text-decoration: none;
-}
-
-.mySingleTitle a:hover {
-  text-decoration: underline;
 }
 
 .mySingleSecName {
@@ -46,8 +43,8 @@ a:link {
 }
 
 .mySingleFigure {
-  height: 450px;
-  width: 850px;
+  /* height: 450px;
+  width: 850px; */
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   display: flex;
@@ -96,4 +93,9 @@ a:link {
   padding-left: 25px;
   width: 850px;
   text-align: justify;
+}
+
+.fakeAdvertising {
+  border-left: 1px solid lightgray;
+  padding-left: 30px;
 }
