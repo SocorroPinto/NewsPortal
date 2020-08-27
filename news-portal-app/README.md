@@ -32,7 +32,7 @@ Used tools for this application:
 
 The following command could be used to start the application:
 `npm start`
-this will open [The Propeth](http://localhost:300/) to view in the browser.
+this will open [The Propeth](http://localhost:3000/) to view in the browser.
 
 ***
 
@@ -77,7 +77,7 @@ The app is handled mainly by the routes defined in App.js
 List of main components and short explanation:
 + ### Header
     + Contains our Portal Title
-        ![Title:](./public/planning/appTitle.png =500x250)
+        ![Title:](./public/planning/appTitle.png)
 
     + Weather Info and Time:
         1. Time
