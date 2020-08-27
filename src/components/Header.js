@@ -12,7 +12,7 @@ const Header = (props) => {
         <img
           className="news-header-image"
           alt=""
-          src="/images/prophetright.png"
+          src="/images/ProphetRight.png"
         />
       </div>
       <div id="news-header-button-container">
