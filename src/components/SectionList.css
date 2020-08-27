@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 3px double black;
+  border-top: 1px solid lightgray;
+  overflow: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  /* color: white; */
+  color: black;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  text-shadow: 1px 1px 1px rgb(128, 128, 128);
+}
+
+.active {
+  background-color: #4caf50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}

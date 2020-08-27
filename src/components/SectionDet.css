@@ -1,0 +1,12 @@
+.sectionCont{
+    display: flex;
+    flex-direction: row;
+} 
+
+/* .mCont {
+} */
+
+.sideCont {
+  display: flex;
+  flex-direction: column;
+}

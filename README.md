@@ -42,7 +42,7 @@ We created the following wireframes and based on them to plan ahead:
 
 For the first page of the portal:
 
-![First Page:](./news-portal-app/public/planning/Design_landing_page.png)
+![First Page:](./public/planning/Design_landing_page.png)
 
 The page for a particular section:
 
@@ -50,25 +50,25 @@ The page for a particular section:
 
 The page for a particular article:
 
-![Article Page:](./news-portal-app/public/planning/Design_individual_news.png)
+![Article Page:](./public/planning/Design_individual_news.png)
 
 The page for searching news based on user inputs:
 
-![Search Page:](./news-portal-app/public/planning/Design_Search_page.png)
+![Search Page:](./public/planning/Design_Search_page.png)
 
 
 ## Also we had the following user stories:
 
-![User Stories Page:](./news-portal-app/public/planning/UserStories.png)
+![User Stories Page:](./public/planning/UserStories.png)
 
 
 For this application we created the following components:
 
-![Components:](./news-portal-app/public/planning/ComponentsList.png)
+![Components:](./public/planning/ComponentsList.png)
 
 And they have the following hierarchy:
 
-![Hierarchy:](./news-portal-app/public/planning/CompHier.png)
+![Hierarchy:](./public/planning/CompHier.png)
 
 # Main Components Explained
 
@@ -77,12 +77,12 @@ The app is handled mainly by the routes defined in App.js
 List of main components and short explanation:
 + ### Header
     + Contains our Portal Title
-        ![Title:](./news-portal-app/public/planning/appTitle.png)
+        ![Title:](./public/planning/appTitle.png)
 
     + Weather Info and Time:
         1. Time
         2. Weather
-        ![HourWeatherInfo:](./news-portal-app/public/planning/compWeatherHour.png)
+        ![HourWeatherInfo:](./public/planning/compWeatherHour.png)
 
         These components have a timer that keeps the info updated.
         The Weather component will obtain your GeoLocation and based on that will show the weather.
@@ -92,7 +92,7 @@ List of main components and short explanation:
     + And the list of sections ribbon:
         1. SectionList
         2. StockInfo
-        ![Ribbon:](./news-portal-app/public/planning/sectionsRibbon.png)
+        ![Ribbon:](./public/planning/sectionsRibbon.png)
 
 
         The stock info will display by default John Deere Stocks.
@@ -101,27 +101,26 @@ List of main components and short explanation:
 + ### Search
     + Contains a form that allows you to input your search and see the results:
         1. NewsList
-        ![ListSearch:](./news-portal-app/public/planning/searchResult.png)
+        ![ListSearch:](./public/planning/searchResult.png)
 
 + ### NewsBySection
     + Contains links to 3 articles for 3 sections
         1. SectionRightNews
-        ![ExampleImage:](./news-portal-app/public/planning/mainRoute.png)
+        ![ExampleImage:](./public/planning/mainRoute.png)
 
 + ### SectionDet
     + Contains one main article and two small ones
         1. SectionBigNews
         2. SectionRightNews
-        ![SectionDetails:](./news-portal-app/public/planning/SectionDetails.png)
+        ![SectionDetails:](./public/planning/SectionDetails.png)
 
 + ### SingleNew
     + Contains the whole articule and some fake promos and ads
         1. FakeAd
         2. FakePromo
-        ![SingleArticle:](./news-portal-app/public/planning/SingleArticle.png)
+        ![SingleArticle:](./public/planning/SingleArticle.png)
 
         The promos have a timer that changes them every few secons.
         The ads are gifs that change also every few seconds.
 
 This is the documentation for this project, if you have any questions or comments, please, don't hesitate to contact me.
-
