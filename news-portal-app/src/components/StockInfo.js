@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./StockInfo.css";
-const STOCK_API_KEY = "X9QJIP3U5R8M22ZE";
+const STOCK_API_KEY = "NPPN742APUQQCUCU";
 const myMainUrl = "https://www.alphavantage.co/query?";
 
 const functions = {
@@ -18,9 +18,8 @@ class StockInfo extends Component {
       eFunction: functions.time_series,
       eSearch: functions.search,
       keywords: null,
+      interval: '5min',
       symbol: "DE",
-      interval: "5min",
-      timer: null,
       stockInfo: null,
     };
   }
@@ -35,46 +34,59 @@ class StockInfo extends Component {
 
     if (typeof myInfo !== "undefined") {
       myStockInfoFirstSerie = Object.values(myInfo)[0];
+      this.setState({
+        stockInfo: myStockInfoFirstSerie,
+        symbol: pSymbol,
+      });
+    } else {
+      this.setState({
+        symbol: 'Error',
+      });
     }
-
-    this.setState({
-      stockInfo: myStockInfoFirstSerie,
-      symbol: pSymbol,
-    });
   };
 
   formatInfo = (pInfo) => {
-    let myOpen = Number(
-      Object.values(pInfo)[Object.keys(pInfo).indexOf("1. open")]
-    );
-    let myMin = Number(
-      Object.values(pInfo)[Object.keys(pInfo).indexOf("2. high")]
-    );
-    let myMax = Number(
-      Object.values(pInfo)[Object.keys(pInfo).indexOf("3. low")]
-    );
-    let myClose = Number(
-      Object.values(pInfo)[Object.keys(pInfo).indexOf("4. close")]
-    );
-    let myEmoji = myClose > myOpen ? "🔼" : myClose < myOpen ? "🔽" : "⏹";
+    if ( this.state.symbol !== 'Error' ) {
+      let myOpen = Number(
+        Object.values(pInfo)[Object.keys(pInfo).indexOf("1. open")]
+      );
+      let myMin = Number(
+        Object.values(pInfo)[Object.keys(pInfo).indexOf("2. high")]
+      );
+      let myMax = Number(
+        Object.values(pInfo)[Object.keys(pInfo).indexOf("3. low")]
+      );
+      let myClose = Number(
+        Object.values(pInfo)[Object.keys(pInfo).indexOf("4. close")]
+      );
+      let myEmoji = myClose > myOpen ? "🔼" : myClose < myOpen ? "🔽" : "⏹";
 
-    return (
-      <div className="stockValues">
-        <div className="stockPrice">
-          Price: {myClose} {myEmoji}
+      return (
+        <div className="stockValues">
+          <div className="stockPrice">
+            {this.state.symbol} Price: {myClose} {myEmoji}
+          </div>
+          <div className="stockLowMax">
+            Low: {myMin} Max: {myMax}
+          </div>
         </div>
-        <div className="stockLowMax">
-          Low: {myMin} Max: {myMax}
+      );
+    } else {
+      return (
+        <div className="stockValues">
+          <div className="stockPrice">
+            No Stock Found
+          </div>
+          <div className="stockLowMax">
+            Low: ----- Max: ------
+          </div>
         </div>
-      </div>
-    );
+      );      
+    }
   };
 
   componentDidMount = () => {
     this.bringStockInfo(this.state.symbol);
-    // this.timer = setInterval(() => {
-    //   this.bringStockInfo(this.state.symbol);
-    // }, 10000000);
   };
 
   handleSearch = async (pKeywords) => {
@@ -82,28 +94,27 @@ class StockInfo extends Component {
     let mySymbolsInfo = await axios.get(myStockUrl);
     let mySymbol = null;
 
-    if (typeof mySymbolsInfo.data.bestMatches != "undefined") {
-      if (mySymbolsInfo.data.bestMatches.length > 0) {
-        mySymbol = mySymbolsInfo.data.bestMatches[0]["1. symbol"];
+   
+      if (typeof mySymbolsInfo.data.bestMatches != "undefined") {
+        if (mySymbolsInfo.data.bestMatches.length > 0) {
+          mySymbol = mySymbolsInfo.data.bestMatches[0]["1. symbol"];
+        }
       }
-    }
 
-    if (mySymbol) {
-      this.bringStockInfo(mySymbol);
-    }
+      if (mySymbol) {
+        this.bringStockInfo(mySymbol);
+      } else {
+        this.setState({
+          symbol: 'Error',
+        });
+      }
   };
 
-  componentWillUnmount = () => {
-    clearInterval(this.timer);
-  };
 
   render() {
     let myDisplayedInfo = null;
-    if (
-      typeof this.state.stockInfo !== "undefined" &&
-      this.state.stockInfo !== null
-    ) {
-      myDisplayedInfo = this.formatInfo(this.state.stockInfo);
+    if ( typeof this.state.stockInfo !== "undefined" && this.state.stockInfo !== null) {
+       myDisplayedInfo = this.formatInfo(this.state.stockInfo);
     }
 
     return (
