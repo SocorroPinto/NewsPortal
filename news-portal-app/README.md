@@ -86,6 +86,7 @@ List of main components and short explanation:
 
         These components have a timer that keeps the info updated.
         The Weather component will obtain your GeoLocation and based on that will show the weather.
+        #### The time component uses hooks to control this behaviour.
 
 + ### SectionList
     + And the list of sections ribbon:
