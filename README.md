@@ -82,7 +82,7 @@ List of main components and short explanation:
     + Weather Info and Time:
         1. Time
         2. Weather
-        ![HourWeatherInfo:](./public/news-portal-app/planning/compWeatherHour.png)
+        ![HourWeatherInfo:](./news-portal-app/public/news-portal-app/planning/compWeatherHour.png)
 
         These components have a timer that keeps the info updated.
         The Weather component will obtain your GeoLocation and based on that will show the weather.
@@ -92,7 +92,7 @@ List of main components and short explanation:
     + And the list of sections ribbon:
         1. SectionList
         2. StockInfo
-        ![Ribbon:](./public/news-portal-app/planning/sectionsRibbon.png)
+        ![Ribbon:](./news-portal-app/public/news-portal-app/planning/sectionsRibbon.png)
 
 
         The stock info will display by default John Deere Stocks.
@@ -101,7 +101,7 @@ List of main components and short explanation:
 + ### Search
     + Contains a form that allows you to input your search and see the results:
         1. NewsList
-        ![ListSearch:](./public/news-portal-app/planning/searchResult.png)
+        ![ListSearch:](./news-portal-app/public/news-portal-app/planning/searchResult.png)
 
 + ### NewsBySection
     + Contains links to 3 articles for 3 sections
