@@ -1,57 +1,52 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./Time.css";
 
-// State date keeps the current date/time
-class Time extends Component {
-  constructor() {
-    super();
-    this.state = {
-      date: new Date(),
-    };
-  }
+const Time = () => {
+  // Options for formatting date
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
 
-  // Update the current date/time state
-  thick = () => {
-    this.setState({
-      date: new Date(),
-    });
-  }; // End thick
+  // REACT HOOKS: MANAGE THE CURRENT TIME STATE
+  const [currentTime, setCurrentTime] = useState(new Date());
 
-  // Set the timer
-  setTimer = () => {
-    this.timerID = setInterval(() => this.thick(), 1000);
-  }; // End setTimer
+  // REACT HOOKS: MANAGE THE INTERVAL
+  useEffect(() => {
+    let timerID = null;
+    timerID = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000); // End setInterval
+    return () => clearInterval(timerID);
+  }); // End useEffect
 
-  // Executing when unmounting component
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
+  // Create the HTML element for time
+  let arrayTime = [];
+  arrayTime.push(currentTime.toLocaleTimeString());
+  let arrayWebTime = [];
+  arrayWebTime = arrayTime.map((elem, index) => {
+    return <p key={index}>{elem}</p>;
+  });
 
-  // Executing when component is mounted
-  componentDidMount() {
-    this.setTimer();
-  } // End componentDidMount
+  // Create the HTML element for date
+  let arrayDate = [];
+  arrayDate.push(
+    currentTime.toLocaleDateString(currentTime.getTimezoneOffset(), options)
+  );
+  let arrayWebDate = [];
+  arrayWebDate = arrayDate.map((elem, index) => {
+    return <p key={index}>{elem}</p>;
+  });
 
-  render() {
-    // Options for formatting date
-    const options = {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-    // Return JSX Elements
-    return (
-      <div id="time-container">
-        <p>{this.state.date.toLocaleTimeString()}</p>
-        <p>
-          {this.state.date.toLocaleDateString(
-            this.state.date.getTimezoneOffset(),
-            options
-          )}
-        </p>
-      </div>
-    );
-  }
-}
+  // Return JSX Elements
+  return (
+    <div id="time-container">
+      <p>{arrayWebTime}</p>
+      <p>{arrayWebDate}</p>
+    </div>
+  );
+};
+
 export default Time;
