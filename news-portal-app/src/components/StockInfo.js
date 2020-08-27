@@ -72,9 +72,9 @@ class StockInfo extends Component {
 
   componentDidMount = () => {
     this.bringStockInfo(this.state.symbol);
-    this.timer = setInterval(() => {
-      this.bringStockInfo(this.state.symbol);
-    }, 10000000);
+    // this.timer = setInterval(() => {
+    //   this.bringStockInfo(this.state.symbol);
+    // }, 10000000);
   };
 
   handleSearch = async (pKeywords) => {

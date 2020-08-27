@@ -148,7 +148,7 @@ class App extends Component {
                             <div className={`my${myClass}SecName`}>{mySecNew.sectionName}</div>
                             {mySecNew.image}
                             {myClass === 'Single' && 
-                            <a className={`my${myClass}LinkArt`} href={mySecNew.webUrl}>Go to The Guardian original article.</a> }
+                            <a className={`my${myClass}LinkArt`} href={mySecNew.webUrl}>Go to The Guardian original article</a> }
                             <div className={`my${myClass}ParCont`}>{mySecNew.bodyHTML}</div>
                         </div>);
 
@@ -159,9 +159,7 @@ class App extends Component {
 
   handleSearch = async (searchString) => {
     const urlNewsSearch = `https://content.guardianapis.com/search?api-key=8e3808f1-0f78-4746-ba70-fd8bf8ce21f4&q=${searchString}&show-fields=thumbnail`;
-    console.log(urlNewsSearch);
     const response = await axios.get(urlNewsSearch);
-    console.log(response.data.response.results);
     this.setState({
       searchNewsList: response.data.response.results,
       searchKeyword: searchString,
