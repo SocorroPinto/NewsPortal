@@ -3,7 +3,7 @@ Developers: César Treviño y Socorro Pinto
 
 ***
 
-#The application
+# The application
 
 The Propeth is a Portal News App. 
 There you can read news for the following sections:
