@@ -1,68 +1,125 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project 3 - The Propeth 
+Developers: César Treviño y Socorro Pinto
 
-## Available Scripts
+***
 
-In the project directory, you can run:
+# The application
 
-### `npm start`
+The Propeth is a Portal News App. 
+There you can read news for the following sections:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
++ World
++ Culture
++ Business
++ Politics
++ Science
++ Sport
++ Technology
++ Search news by tags.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The news information is taken from The Guardian API: [The Guardian](https://open-platform.theguardian.com/documentation/).
+The weather information is taken from the Weatherbit.io API: [Weatherbit](https://www.weatherbit.io/).
+The stock information is taken from Alpha Vantage API: [AlphaVantage](https://www.alphavantage.co/).
+ 
+***
 
-### `npm test`
+# Technical Details
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Used tools for this application:
++ REACT
++ HTML5
++ CSS
 
-### `npm run build`
+The following command could be used to start the application:
+`npm start`
+this will open [The Propeth](http://localhost:3000/) to view in the browser.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+***
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# Planning
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We created the following wireframes and based on them to plan ahead:
 
-### `npm run eject`
+For the first page of the portal:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![First Page:](./public/planning/Design_landing_page.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The page for a particular section:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Section Page:](./public/planning/Design_Section_page.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The page for a particular article:
 
-## Learn More
+![Article Page:](./public/planning/Design_individual_news.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The page for searching news based on user inputs:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Search Page:](./public/planning/Design_Search_page.png)
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Also we had the following user stories:
 
-### Analyzing the Bundle Size
+![User Stories Page:](./public/planning/UserStories.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+For this application we created the following components:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+![Components:](./public/planning/ComponentsList.png)
 
-### Advanced Configuration
+And they have the following hierarchy:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+![Hierarchy:](./public/planning/CompHier.png)
 
-### Deployment
+# Main Components Explained
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+The app is handled mainly by the routes defined in App.js
 
-### `npm run build` fails to minify
+List of main components and short explanation:
++ ### Header
+    + Contains our Portal Title
+        ![Title:](./public/planning/appTitle.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+    + Weather Info and Time:
+        1. Time
+        2. Weather
+        ![HourWeatherInfo:](./public/planning/compWeatherHour.png)
+
+        These components have a timer that keeps the info updated.
+        The Weather component will obtain your GeoLocation and based on that will show the weather.
+
++ ### SectionList
+    + And the list of sections ribbon:
+        1. SectionList
+        2. StockInfo
+        ![Ribbon:](./public/planning/sectionsRibbon.png)
+
+
+        The stock info will display by default John Deere Stocks.
+        Also allows you to search by company and display their stock info.
+
++ ### Search
+    + Contains a form that allows you to input your search and see the results:
+        1. NewsList
+        ![ListSearch:](./public/planning/searchResult.png)
+
++ ### NewsBySection
+    + Contains links to 3 articles for 3 sections
+        1. SectionRightNews
+        ![ExampleImage:](./public/planning/mainRoute.png)
+
++ ### SectionDet
+    + Contains one main article and two small ones
+        1. SectionBigNews
+        2. SectionRightNews
+        ![SectionDetails:](./public/planning/SectionDetails.png)
+
++ ### SingleNew
+    + Contains the whole articule and some fake promos and ads
+        1. FakeAd
+        2. FakePromo
+        ![SingleArticle:](./public/planning/SingleArticle.png)
+
+        The promos have a timer that changes them every few secons.
+        The ads are gifs that change also every few seconds.
+
+This is the documentation for this project, if you have any questions or comments, please, don't hesitate to contact me.
